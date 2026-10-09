@@ -4,14 +4,24 @@
     <OutputType>WinExe</OutputType>
 	<Platforms>x64;ARM64</Platforms>
 	<SelfContained>true</SelfContained>
+	<PublishProfile>Properties\PublishProfiles\win10-$(Platform).pubxml</PublishProfile>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <WindowsPackageType>MSIX</WindowsPackageType>
 	<RootNamespace>WinRTCOMSample</RootNamespace>
 	<ApplicationManifest>app.manifest</ApplicationManifest>
 	<TargetFramework>net9.0-windows10.0.26100.0</TargetFramework>
     <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+	<RuntimeIdentifier Condition="'$(Platform)' == 'x64'">win-x64</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(Platform)' == 'ARM64'">win-arm64</RuntimeIdentifier>
 	<CsWinRTIncludes>WinRTCOMServer</CsWinRTIncludes>
-	<CsWinRTWindowsMetadata>10.0.26100.0</CsWinRTWindowsMetadata>
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	<WindowsSdkPackageVersion>10.0.26100.87</WindowsSdkPackageVersion>
 	<AssetTargetFallback>net9.0-windows$(TargetPlatformVersion);$(AssetTargetFallback)</AssetTargetFallback>
+  </PropertyGroup>
+  <PropertyGroup Label="CsWinRTInformation">
+    <CsWinRTIncludes>WinRTCOMServer</CsWinRTIncludes>
+    <CsWinRTIIDOptimizerOptOut>true</CsWinRTIIDOptimizerOptOut>
+    <CsWinRTAotOptimizerEnabled>false</CsWinRTAotOptimizerEnabled>
   </PropertyGroup>
   <PropertyGroup Label="Optimization">
 	<TieredPGO>true</TieredPGO>
@@ -25,12 +35,20 @@
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.6584" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.251003001" />
-	<PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0">
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2705" />
+	<PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1">
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
+	<PackageReference Include="Microsoft.Windows.SDK.BuildTools.MSIX" Version="1.7.261008100">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="Microsoft.WindowsAppSDK.InteractiveExperiences" Version="2.1.9" />
+	<PackageReference Include="Microsoft.WindowsAppSDK.WinUI" Version="2.3.9" />
+	<ProjectReference Include="..\WinRTCOMServer\WinRTCOMServer.csproj">
+      <MsixSubfolder>WinRTCOMServer</MsixSubfolder>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
 	<Content Include="..\WinRTCOMServer\bin\$(Platform)\$(Configuration)\$(TargetFramework)\win-$(Platform)\WinRTCOMServer.winmd">
@@ -40,7 +58,14 @@
   </ItemGroup>
   <ItemGroup>
 	<CsWinRTInputs Include="..\WinRTCOMServer\bin\$(Platform)\$(Configuration)\$(TargetFramework)\win-$(Platform)\WinRTCOMServer.winmd">
+	  <Name>%(Filename)</Name>
 	  <IsWinMDFile>true</IsWinMDFile>
 	</CsWinRTInputs>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\**" />
+    <None Update="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
 </Project>

@@ -16,7 +16,7 @@
   <mp:PhoneIdentity PhoneProductId="5563021d-23bb-44a9-9678-344f7408f987" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>WinRTCOMSample (Package)</DisplayName>
+    <DisplayName>WinRTCOMSample</DisplayName>
     <PublisherDisplayName>Windows</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
@@ -35,8 +35,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="WinRTCOMSample (Package)"
-        Description="WinRTCOMSample (Package)"
+        DisplayName="WinRTCOMSample"
+        Description="WinRTCOMSample"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
@@ -51,7 +51,7 @@
 	  <OutOfProcessServer ServerName="WinRTCOMServer"
                           uap5:IdentityType="activateAsPackage"
                           uap5:RunFullTrust="true">
-		<Path>WinRTCOMServer.exe</Path>
+		<Path>WinRTCOMServer\WinRTCOMServer.exe</Path>
 		<Instancing>singleInstance</Instancing>
 		<ActivatableClass ActivatableClassId="WinRTCOMServer.COMService" />
 	  </OutOfProcessServer>

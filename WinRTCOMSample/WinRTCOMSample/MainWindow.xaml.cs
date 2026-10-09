@@ -1,6 +1,5 @@
 using Microsoft.UI.Xaml;
 using System;
-using System.Threading.Tasks;
 using WinRTCOMServer;
 
 namespace WinRTCOMSample
