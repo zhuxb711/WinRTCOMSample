@@ -1,0 +1,12 @@
+{
+    "profiles": {
+        "RX-Explorer-WAS": {
+            "commandName": "MsixPackage",
+            "doNotLaunchApp": false,
+            "nativeDebugging": false,
+            "alwaysReinstallApp": false,
+            "remoteDebugEnabled": false,
+            "allowLocalNetworkLoopbackProperty": true
+        }
+    }
+}

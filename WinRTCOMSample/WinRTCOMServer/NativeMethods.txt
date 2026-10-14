@@ -1,0 +1,14 @@
+﻿E_INVALIDARG
+CLASS_E_CLASSNOTAVAILABLE
+GLOBALOPT_EH_VALUES
+RoInitialize
+RoUninitialize
+RoRegisterActivationFactories
+RoRevokeActivationFactories
+CoCreateInstance
+WindowsCreateString
+WindowsDeleteString
+IGlobalOptions
+CLSID_GlobalOptions
+CoAddRefServerProcess
+CoReleaseServerProcess
