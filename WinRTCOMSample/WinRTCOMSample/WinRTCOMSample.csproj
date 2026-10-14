@@ -40,7 +40,7 @@
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
-	<PackageReference Include="Microsoft.Windows.SDK.BuildTools.MSIX" Version="1.7.261008100">
+	<PackageReference Include="Microsoft.Windows.SDK.BuildTools.MSIX" Version="1.7.261012100-preview">
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
